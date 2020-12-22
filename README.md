@@ -30,6 +30,11 @@
 
 ```bash
 $ npm install
+
+$ npm install @nestjs/jwt passport-jwt
+$ npm install @types/passport-jwt --save-dev
+
+$ npm install --save @nestjs/typeorm typeorm mysql
 ```
 
 ## Running the app
