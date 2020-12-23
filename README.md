@@ -19,6 +19,9 @@ $ npm install @nestjs/jwt passport-jwt
 $ npm install @types/passport-jwt --save-dev
 
 $ npm install --save @nestjs/typeorm typeorm mysql
+
+// todo
+npm i --save @nestjs/graphql apollo-server-express graphql-tools graphql
 ```
 
 資料庫設定請參閱 src/app.module.ts 中的連結設定

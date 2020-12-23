@@ -20,7 +20,7 @@ export class AuthService {
   }
   
   async login(user: any) {
-    const payload: IJwtPayload = { userName: user.userName, userId: user.id };
+    const payload: IJwtPayload = { userName: user.userName, userId: user.id, role: user.role };
     if (payload.userName === undefined){
       return {
         access_token: "",
