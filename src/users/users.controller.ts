@@ -1,22 +1,23 @@
 import { Controller, Get, UseGuards, Request } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
+import { IJwtPayload } from 'src/auth/interfaces/i-jwt-payload';
 import { UsersService } from './users.service';
 
+@UseGuards(AuthGuard('jwt'))
 @Controller('users')
 export class UsersController {
     constructor(
         private readonly usersService: UsersService
     ) {}
     
-    @UseGuards(AuthGuard('jwt'))
 	@Get('userlist')
 	getUsers(){
 	    return this.usersService.findAll();
-    }
-    
-    @UseGuards(AuthGuard('jwt'))
+	}
+	
 	@Get('profile')
 	getProfile(@Request() req){
-	    return req.user;
+		const { iat, exp, ...result } = req.user;;
+	    return result;
 	}
 }
