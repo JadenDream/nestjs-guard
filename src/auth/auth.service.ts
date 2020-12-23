@@ -1,6 +1,7 @@
 import { Injectable, Inject, forwardRef } from '@nestjs/common';
 import { UsersService } from '../users/users.service';
 import { JwtService } from '@nestjs/jwt';
+import { IJwtPayload } from './interfaces/i-jwt-payload';
 
 @Injectable()
 export class AuthService {
@@ -19,8 +20,8 @@ export class AuthService {
   }
   
   async login(user: any) {
-    const payload = { username: user.userName, sub: user.id };
-    if (payload.username === undefined){
+    const payload: IJwtPayload = { userName: user.userName, userId: user.id };
+    if (payload.userName === undefined){
       return {
         access_token: "",
       };
