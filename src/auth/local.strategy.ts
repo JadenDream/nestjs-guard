@@ -8,7 +8,8 @@ import { ModuleRef, ContextIdFactory } from '@nestjs/core';
 export class LocalStrategy extends PassportStrategy(Strategy) {
   constructor(private moduleRef: ModuleRef) {
     super({
-        passReqToCallback:true
+        passReqToCallback:true,
+        usernameField: 'email'
     });
   }
 

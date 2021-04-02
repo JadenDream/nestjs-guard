@@ -11,7 +11,10 @@
 
 ```bash
 $ nest u
+$ npm i
+$ npm install --save @apollo/gateway
 
+// 以下在本次重裝系統後  並無進行也可運行
 $ npm install --save @nestjs/passport passport passport-local
 $ npm install --save-dev @types/passport-local
 

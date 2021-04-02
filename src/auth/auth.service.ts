@@ -20,6 +20,7 @@ export class AuthService {
   }
   
   async login(user: any) {
+    console.log('user:', user);
     const payload: IJwtPayload = { userName: user.userName, userId: user.id, role: user.role };
     if (payload.userName === undefined){
       return {
@@ -29,7 +30,7 @@ export class AuthService {
 
     const ttoken = this.jwtService.sign(payload);
     return {
-      access_token: ttoken,
+      token: ttoken,
     };
   }
 }
